@@ -18,7 +18,7 @@ public class UtestJoinStepDefinitions {
 
     @Given("^than alejandro wants to join in the Utest Website with the personal data$")
     public void thanAlejandroWantsToJoinInTheUtestWebsiteWithThePersonalData() {
-        OnStage.theActorCalled("Alejandro").wasAbleTo(OpenUp.thePage());
+        OnStage.theActorCalled("Alejandro").wasAbleTo(OpenUp.thePage(), EnterRegister.onThePage());
     }
 
 
