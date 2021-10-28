@@ -31,7 +31,14 @@ public class UtestJoinStepDefinitions {
                 utestUserData.get(0).getStrEmail(),
                 utestUserData.get(0).getStrYearOfBirth(),
                 utestUserData.get(0).getStrMonthOfBirth(),
-                utestUserData.get(0).getStrDayOfBirth()));
+                utestUserData.get(0).getStrDayOfBirth())
+        );
+
+        OnStage.theActorInTheSpotlight().attemptsTo(RegisterStep2.the(
+                utestUserData.get(0).getStrCity(),
+                utestUserData.get(0).getStrZipCode(),
+                utestUserData.get(0).getStrCountry()
+        ));
     }
 
     @Then("^he wants to check the user has created correctly$")
