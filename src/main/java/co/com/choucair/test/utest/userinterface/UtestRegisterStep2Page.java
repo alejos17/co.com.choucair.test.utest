@@ -14,6 +14,6 @@ public class UtestRegisterStep2Page extends PageObject {
 
     public static final Target INPUT_COUNTRY = Target.the("Input the Country").located(By.xpath("//*[@id=\"regs_container\"]/div/div[2]/div/div[2]/div/form/div[1]/div[3]/div[1]/div[4]/div[2]/div/div/input[1]"));
 
-    public static final Target NEXT_BUTTON = Target.the("Button to next, Register Step 2").located(By.xpath("//div[@class='pull-right next-step']//span[contains(text(),'Next: Devices')]"));
+    public static final Target NEXT_BUTTON = Target.the("Button to next, Register Step 3").located(By.xpath("//div[@class='pull-right next-step']//span[contains(text(),'Next: Devices')]"));
 
 }

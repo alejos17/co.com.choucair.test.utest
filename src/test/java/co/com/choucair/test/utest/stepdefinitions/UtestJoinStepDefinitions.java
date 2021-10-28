@@ -1,6 +1,7 @@
 package co.com.choucair.test.utest.stepdefinitions;
 
 import co.com.choucair.test.utest.model.UtestUserData;
+import co.com.choucair.test.utest.questions.Answer;
 import co.com.choucair.test.utest.tasks.*;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -48,11 +49,15 @@ public class UtestJoinStepDefinitions {
                 utestUserData.get(0).getStrModel(),
                 utestUserData.get(0).getStrOs()
         ));
+
+        OnStage.theActorInTheSpotlight().attemptsTo(RegisterStep4.the(
+                utestUserData.get(0).getStrPassword()
+        ));
     }
 
     @Then("^he wants to check the user has created correctly$")
-    public void heWantsToCheckTheUserHasCreatedCorrectly() {
-
+    public void heWantsToCheckTheUserHasCreatedCorrectly(List<UtestUserData> utestUserData) throws Exception {
+        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(Answer.toThe(utestUserData.get(0).getStrMessage())));
     }
 
 }
