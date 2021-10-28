@@ -11,6 +11,12 @@ public class UtestUserData {
     private String strCity;
     private String strZipCode;
     private String strCountry;
+    private String strComputer;
+    private String strVersion;
+    private String strLanguage;
+    private String strMobileDevice;
+    private String strModel;
+    private String strOs;
 
 
     public String getStrName() {
@@ -83,5 +89,53 @@ public class UtestUserData {
 
     public void setStrCountry(String strCountry) {
         this.strCountry = strCountry;
+    }
+
+    public String getStrComputer() {
+        return strComputer;
+    }
+
+    public void setStrComputer(String strComputer) {
+        this.strComputer = strComputer;
+    }
+
+    public String getStrVersion() {
+        return strVersion;
+    }
+
+    public void setStrVersion(String strVersion) {
+        this.strVersion = strVersion;
+    }
+
+    public String getStrLanguage() {
+        return strLanguage;
+    }
+
+    public void setStrLanguage(String strLanguage) {
+        this.strLanguage = strLanguage;
+    }
+
+    public String getStrMobileDevice() {
+        return strMobileDevice;
+    }
+
+    public void setStrMobileDevice(String strMobileDevice) {
+        this.strMobileDevice = strMobileDevice;
+    }
+
+    public String getStrModel() {
+        return strModel;
+    }
+
+    public void setStrModel(String strModel) {
+        this.strModel = strModel;
+    }
+
+    public String getStrOs() {
+        return strOs;
+    }
+
+    public void setStrOs(String strOs) {
+        this.strOs = strOs;
     }
 }

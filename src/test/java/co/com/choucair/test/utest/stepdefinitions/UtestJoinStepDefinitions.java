@@ -39,6 +39,15 @@ public class UtestJoinStepDefinitions {
                 utestUserData.get(0).getStrZipCode(),
                 utestUserData.get(0).getStrCountry()
         ));
+
+        OnStage.theActorInTheSpotlight().attemptsTo(RegisterStep3.the(
+                utestUserData.get(0).getStrComputer(),
+                utestUserData.get(0).getStrVersion(),
+                utestUserData.get(0).getStrLanguage(),
+                utestUserData.get(0).getStrMobileDevice(),
+                utestUserData.get(0).getStrModel(),
+                utestUserData.get(0).getStrOs()
+        ));
     }
 
     @Then("^he wants to check the user has created correctly$")

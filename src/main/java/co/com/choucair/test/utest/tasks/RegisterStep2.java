@@ -30,7 +30,7 @@ public class RegisterStep2 implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Click.on(UtestRegisterStep2Page.CLICK_INPUT_COUNTRY),
-                Enter.keyValues(strCountry).into(UtestRegisterStep2Page.INPUT_COUNTRY).thenHit(Keys.RETURN),
+                Enter.theValue(strCountry).into(UtestRegisterStep2Page.INPUT_COUNTRY).thenHit(Keys.RETURN),
                 Enter.theValue(strCity).into(UtestRegisterStep2Page.INPUT_CITY),
                 Enter.theValue(strZipCode).into(UtestRegisterStep2Page.INPUT_ZIPCODE),
                 Click.on(UtestRegisterStep2Page.NEXT_BUTTON)
