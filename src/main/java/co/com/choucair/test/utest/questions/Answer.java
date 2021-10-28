@@ -21,8 +21,6 @@ public class Answer implements Question<Boolean> {
     public Boolean answeredBy(Actor actor) {
         boolean result;
         String CompletedMessage= Text.of(UtestRegisterCompletedPage.CONFIRM_REGISTRATION).viewedBy(actor).asString();
-        System.out.println("Mensaje Esperado"+ strMessage);
-        System.out.println("Mensaje Capturado" +CompletedMessage);
         if(strMessage.equals(CompletedMessage)){
             result = true;
         }else {
