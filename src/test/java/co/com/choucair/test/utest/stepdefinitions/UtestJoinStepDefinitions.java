@@ -1,5 +1,6 @@
 package co.com.choucair.test.utest.stepdefinitions;
 
+import co.com.choucair.test.utest.model.UtestUserData;
 import co.com.choucair.test.utest.tasks.*;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -23,8 +24,14 @@ public class UtestJoinStepDefinitions {
 
 
     @When("^he register your personal information in the register form$")
-    public void heRegisterYourPersonalInformationInTheRegisterForm() {
-
+    public void heRegisterYourPersonalInformationInTheRegisterForm(List<UtestUserData> utestUserData) throws Exception {
+        OnStage.theActorInTheSpotlight().attemptsTo(RegisterStep1.the(
+                utestUserData.get(0).getStrName(),
+                utestUserData.get(0).getStrLastName(),
+                utestUserData.get(0).getStrEmail(),
+                utestUserData.get(0).getStrYearOfBirth(),
+                utestUserData.get(0).getStrMonthOfBirth(),
+                utestUserData.get(0).getStrDayOfBirth()));
     }
 
     @Then("^he wants to check the user has created correctly$")
