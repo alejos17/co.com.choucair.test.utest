@@ -23,41 +23,17 @@ public class UtestJoinStepDefinitions {
         OnStage.theActorCalled("Alejandro").wasAbleTo(OpenUp.thePage(), EnterRegister.onThePage());
     }
 
-
     @When("^he register your personal information in the register form$")
-    public void heRegisterYourPersonalInformationInTheRegisterForm(List<UtestUserData> utestUserData) throws Exception {
-        OnStage.theActorInTheSpotlight().attemptsTo(RegisterStep1.the(
-                utestUserData.get(0).getStrName(),
-                utestUserData.get(0).getStrLastName(),
-                utestUserData.get(0).getStrEmail(),
-                utestUserData.get(0).getStrYearOfBirth(),
-                utestUserData.get(0).getStrMonthOfBirth(),
-                utestUserData.get(0).getStrDayOfBirth())
-        );
-
-        OnStage.theActorInTheSpotlight().attemptsTo(RegisterStep2.the(
-                utestUserData.get(0).getStrCity(),
-                utestUserData.get(0).getStrZipCode(),
-                utestUserData.get(0).getStrCountry()
-        ));
-
-        OnStage.theActorInTheSpotlight().attemptsTo(RegisterStep3.the(
-                utestUserData.get(0).getStrComputer(),
-                utestUserData.get(0).getStrVersion(),
-                utestUserData.get(0).getStrLanguage(),
-                utestUserData.get(0).getStrMobileDevice(),
-                utestUserData.get(0).getStrModel(),
-                utestUserData.get(0).getStrOs()
-        ));
-
-        OnStage.theActorInTheSpotlight().attemptsTo(RegisterStep4.the(
-                utestUserData.get(0).getStrPassword()
-        ));
+    public void heRegisterYourPersonalInformationInTheRegisterForm(List<UtestUserData> userData) throws Exception {
+        OnStage.theActorInTheSpotlight().attemptsTo(RegisterStep1.the(userData.get(0)));
+        OnStage.theActorInTheSpotlight().attemptsTo(RegisterStep2.the(userData.get(0)));
+        OnStage.theActorInTheSpotlight().attemptsTo(RegisterStep3.the(userData.get(0)));
+        OnStage.theActorInTheSpotlight().attemptsTo(RegisterStep4.the(userData.get(0)));
     }
 
     @Then("^he wants to check the user has created correctly$")
-    public void heWantsToCheckTheUserHasCreatedCorrectly(List<UtestUserData> utestUserData) throws Exception {
-        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(Answer.toThe(utestUserData.get(0).getStrMessage())));
+    public void heWantsToCheckTheUserHasCreatedCorrectly(List<UtestUserData> userData) throws Exception {
+        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(Answer.toThe(userData.get(0))));
     }
 
 }

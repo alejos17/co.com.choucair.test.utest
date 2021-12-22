@@ -1,27 +1,30 @@
 package co.com.choucair.test.utest.questions;
 
+import co.com.choucair.test.utest.model.UtestUserData;
 import co.com.choucair.test.utest.userinterface.UtestRegisterCompletedPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;
 
+import static co.com.choucair.test.utest.userinterface.UtestRegisterCompletedPage.*;
+
 public class Answer implements Question<Boolean> {
 
-    private String strMessage;
+    private UtestUserData userData;
 
-    public Answer(String strMessage) {
-        this.strMessage = strMessage;
+    public Answer(UtestUserData userData) {
+        this.userData = userData;
     }
 
-    public static Answer toThe(String strMessage) {
-        return new Answer(strMessage);
+    public static Answer toThe(UtestUserData userData) {
+        return new Answer(userData);
     }
 
     @Override
     public Boolean answeredBy(Actor actor) {
         boolean result;
-        String CompletedMessage= Text.of(UtestRegisterCompletedPage.CONFIRM_REGISTRATION).viewedBy(actor).asString();
-        if(strMessage.equals(CompletedMessage)){
+        String CompletedMessage= Text.of(CONFIRM_REGISTRATION).viewedBy(actor).asString();
+        if(userData.getStrMessage().equals(CompletedMessage)){
             result = true;
         }else {
             result = false;

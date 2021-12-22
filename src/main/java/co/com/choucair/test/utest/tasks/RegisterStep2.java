@@ -1,5 +1,6 @@
 package co.com.choucair.test.utest.tasks;
 
+import co.com.choucair.test.utest.model.UtestUserData;
 import co.com.choucair.test.utest.userinterface.UtestRegisterStep2Page;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -8,31 +9,30 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import org.openqa.selenium.Keys;
 
+import static co.com.choucair.test.utest.userinterface.UtestRegisterStep2Page.*;
+import static net.serenitybdd.screenplay.actions.Click.*;
+import static net.serenitybdd.screenplay.actions.Enter.*;
+
 public class RegisterStep2 implements Task {
 
-    private String strCity;
-    private String strZipCode;
-    private String strCountry;
+    private UtestUserData userData;
 
-    public RegisterStep2(String strCity, String strZipCode, String strCountry) {
-        this.strCity = strCity;
-        this.strZipCode = strZipCode;
-        this.strCountry = strCountry;
+    public RegisterStep2(UtestUserData userData){
+        this.userData = userData;
     }
 
-    public static RegisterStep2 the(String strCity, String strZipCode, String strCountry) {
-        return Tasks.instrumented(RegisterStep2.class,strCity,strZipCode,strCountry);
+    public static RegisterStep2 the(UtestUserData userData){
+        return Tasks.instrumented(RegisterStep2.class, userData);
     }
-
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Click.on(UtestRegisterStep2Page.CLICK_INPUT_COUNTRY),
-                Enter.theValue(strCountry).into(UtestRegisterStep2Page.INPUT_COUNTRY).thenHit(Keys.RETURN),
-                Enter.theValue(strCity).into(UtestRegisterStep2Page.INPUT_CITY),
-                Enter.theValue(strZipCode).into(UtestRegisterStep2Page.INPUT_ZIPCODE),
-                Click.on(UtestRegisterStep2Page.NEXT_BUTTON)
+                on(CLICK_INPUT_COUNTRY),
+                theValue(userData.getStrCountry()).into(INPUT_COUNTRY).thenHit(Keys.RETURN),
+                theValue(userData.getStrCity()).into(INPUT_CITY),
+                theValue(userData.getStrZipCode()).into(INPUT_ZIPCODE),
+                on(NEXT_BUTTON)
         );
     }
 }
